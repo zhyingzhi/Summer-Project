@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="public/student.css">
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">Student</h1>
+        <div class="out"><form method="post" action="http://localhost:2330/logout"><button type="submit" class="btn">Log out</button></form></div>
+    </div>
+    <div class="bottom">
+        <div class="nav">
+            <ul class="tab">
+                <li class = "nav-tab active"><a href="#">Info</a></li>
+                <li class = "nav-tab"><a href="#">Timetable</a></li>
+                <li class = "nav-tab"><a href="#">Exercise</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="info page">
+                <form method="post" action="http://localhost:2330/changespwd">
+                    Email: <input type="email" name="email" placeholder="Enter the email address"><br>
+                    New password: <input type="password" name="newpassword"  placeholder="Enter the new password"><br>
+                    <input type="submit" value="Change password" class="btn"></button>
+                 </form>
+            </div>
+            <div class="timetable page">
+                 <ul class="list">
+
+                 </ul>
+            </div>
+            <div  class = "exercise page">
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        let tabs = document.querySelectorAll('.tab .nav-tab');
+        let pages = document.querySelectorAll('.content .page')
+        //change tab
+        for(let i = 0; i < tabs.length; i++){
+            tabs[i].addEventListener('click',function(){
+                document.querySelector('.tab .active').classList.remove('active')
+                this.classList.add('active')
+
+                document.querySelector('.content .info').classList.remove('info')
+                pages[i].classList.add('info')
+            })
+        }
+
+        let data = [
+            {title: 'Finnish'},
+            {title: 'JavaScript'},
+            {title: 'Mathematics'},
+            {title: 'Physics'},
+            {title: 'HTML and CSS'}
+        ]
+        let ul = document.querySelector('.list')
+        for(let i = 0; i < data.length; i++){
+            let li = document.createElement('li')
+            li.innerHTML =`
+            <h4>${data[i].title}</h4>
+            `
+            ul.appendChild(li)
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+body {
+    width: 1300px;
+    height:568px;
+    padding-top:80px;
+    background-color:rgb(242, 230, 216);
+    margin: 0 auto;
+}
+.log-box{
+    width:400px;
+    height:530px;
+    background-color:rgba(143, 140, 140, 0.4);
+    margin: 0 auto;
+    
+}
+.tab-area {
+    height: 10%;
+    background-color:palevioletred;
+}
+.signup-area {
+    height: 90%;
+    display:none;
+    background-color: aquamarine;
+}
+a {
+    margin-right: 10px;
+}
+li{
+    display: inline-block;
+    margin: 20px 30px;
+}
+.page {
+    display:none;
+}
+.log { 
+     display:block;
+    }
+
+input{
+    margin:20px auto;
+}
+
+.btn{
+    width: 60px;
+    display: block;
+    margin: 20px auto;
+}
+.btn-login{
+    width: 60px;
+    display: block;
+    margin: 20px auto; 
+}
+
+form{
+    padding: 20px;
+}

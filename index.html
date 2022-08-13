@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="public/index.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+    </script>
+</head>
+<body>
+        <div class="log-box">
+            <div class="tab-area">
+                <ul class="tab">
+                    <li class = "nav-tab active"><a href="#">Login</a></li>
+                    <li class = "nav-tab"><a href="#">Sign Up</a></li>
+                    <li class = "nav-tab"><a href="#">Teacher</a></li>
+                </ul>
+            </div>
+            <div class="log-area">
+                <div class="log page">
+                    <form method="post" action="http://localhost:2330/login">
+                       Username: <input type="text"name="username" type="text" placeholder="Enter the username"><br>
+                       Email: <input type="email" name="email"  placeholder="Enter the email address"><br>
+                       Password: <input type="password" name="password" placeholder="Enter the password"><br>
+                             <input type="submit" value="Login" class="btn"></button>
+                    </form>
+                </div>
+                <div class="sign page">
+                    <form method="post" action="http://localhost:2330/signup">
+                        Username: <input type="text" name="signname"id="username-sign" type="text" placeholder="Enter the username"><br>
+                        Email: <input type="email" name="signemail"id="email-sign"  placeholder="Enter the email address"><br>
+                        Password: <input type="password" name="signpassword" id="password-sign" placeholder="Enter the password"><br>
+                        <input type="submit" value="Sign Up" class="btn"></button>
+                     </form>
+                </div>
+                <div class="teacher page">
+                    <form method="post" action="http://localhost:2330/teacherlogin">
+                       Teacher name: <input type="text"name="username" type="text" placeholder="Enter the username"><br>
+                       Email: <input type="email" name="email"  placeholder="Enter the email address"><br>
+                       Password: <input type="password" name="password" placeholder="Enter the password"><br>
+                             <input type="submit" value="Login" class="btn"></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+   <script>
+        let tabs = document.querySelectorAll('.tab .nav-tab');
+        let pages = document.querySelectorAll('.log-area .page')
+        //change tab
+        for(let i = 0; i < tabs.length; i++){
+            tabs[i].addEventListener('click',function(){
+                document.querySelector('.tab .active').classList.remove('active')
+                this.classList.add('active')
+
+                document.querySelector('.log-area .log').classList.remove('log')
+                pages[i].classList.add('log')
+                
+            })
+        }
+
+
+    
+   </script>
+</body>
+</html>

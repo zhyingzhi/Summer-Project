@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="public/teacher.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+    </script>
+</head>
+<body>
+    <div class="header">
+        <h1 class="title">Teacher</h1>
+        <div class="out"><form method="post" class="logout" action="http://localhost:2330/logout"><button type="submit">Log out</button></form></div>
+    </div>
+    <div class="bottom">
+        <div class="nav">
+            <ul class="tab">
+                <li class = "nav-tab active"><a href="#">Info</a></li>
+                <li class = "nav-tab"><a href="#">Timetable</a></li>
+                <li class = "nav-tab"><a href="#">Study track</a></li>
+                <li class = "nav-tab"><a href="#">Summary</a></li>
+            </ul>
+        </div>
+        <div class="content">
+            <div class="info page">
+                <form method="post" action="http://localhost:2330/signup">
+                    Student name: <input type="text" name="signname"id="username-sign" type="text" placeholder="Enter the student name"><br>
+                    Email: <input type="email" name="signemail"id="email-sign"  placeholder="Enter the email address"><br>
+                    Password: <input type="password" name="signpassword" id="password-sign" placeholder="Enter the password"><br>
+                    <input type="submit" value="Create a student" class="btn"></button>
+                 </form><br>
+                 <form method="post" action="http://localhost:2330/changetpwd">
+                    Email: <input type="email" name="email" placeholder="Enter the email address"><br>
+                    New password: <input type="password" name="newpassword"  placeholder="Enter the new password"><br>
+                    <input type="submit" value="Change password" class="btn"></button>
+                 </form>
+            </div>
+            <div class="timetable page">
+                <button type="button" class="btn-cc">Create a course</button>
+                 <ul class="list">
+
+                 </ul>
+            </div>
+            <div class="track page">
+                <form>
+                    <select name="course" id class="course-select">
+                    <option value="programming">Programming</option>
+                    <option value="development">Development</option>
+                </select><br/>
+                <textarea name="" class = "txt" id="exercise" cols="30" rows="10"></textarea>
+                 <br />
+                 <button type="button" class="btn-cc">Create a exercise</button>
+                </form>
+                 <ul>
+
+                 </ul>
+            </div>
+            <div class="summary page">
+        
+            </div>
+        </div>
+        
+    </div>
+
+    <script>
+        let tabs = document.querySelectorAll('.tab .nav-tab');
+        let pages = document.querySelectorAll('.content .page')
+        //change tab
+        for(let i = 0; i < tabs.length; i++){
+            tabs[i].addEventListener('click',function(){
+                document.querySelector('.tab .active').classList.remove('active')
+                this.classList.add('active')
+
+                document.querySelector('.content .info').classList.remove('info')
+                pages[i].classList.add('info')
+            })
+        }
+
+        let data = [
+            {title: 'Finnish'},
+            {title: 'HTML and CSS'},
+            {title: 'Mathematics'},
+            {title: 'Physics'},
+            {title: 'JavaScript'}
+        ]
+        let ul = document.querySelector('.list')
+        for(let i = 0; i < data.length; i++){
+            let li = document.createElement('li')
+            li.innerHTML =`
+            <h4>${data[i].title}</h4>
+            `
+            ul.appendChild(li)
+        }
+
+        let exercise = document.querySelector('.exercise')
+        function render() {
+            // add exercise
+            for(let i = 0; i < data.length; i++){
+
+            }
+
+        }
+
+        $(function(){
+            $(".btn-cc").on("click", function(){
+                var li = $("<li></li>");
+                li.html($(".txt").val() + "<a href='javascript:;'>delete</a>");
+                $(".track ul").prepend(li);
+                li.slideDown();
+            })
+        })
+
+
+
+    </script>
+</body>
+</html>
